@@ -14,15 +14,17 @@ public class Planet
 {
     ShapeRenderer shapeRenderer;
     SpriteBatch batch;
-    Texture planetTexture1 = new Texture("genericPLanet1.png");
+    Texture planetTexture1 = new Texture("genericPlanet1.png");
     Texture planetTexture2 = new Texture("genericPlanet2.png");
     Texture planetTexture3 = new Texture("genericPlanet3.png");
-    Sprite planet = new Sprite(planetTexture1);
+    Sprite planet;
     Random rand;
     int randomX;
     int randomY;
     int randomRadius;
     boolean twinkle;
+    //Constructor for the class. Generates random numbers to determine how the planet looks,
+    // the size of the planet, where it is on the screen, and possibly if it twinkles. (Might be used for moon)
     public Planet()
     {
         batch = new SpriteBatch();
@@ -44,11 +46,12 @@ public class Planet
         }
         randomX = rand.nextInt(Gdx.graphics.getWidth());
         randomY = rand.nextInt(Gdx.graphics.getHeight());
-        randomRadius = rand.nextInt(5) + 1;
+        randomRadius = rand.nextInt(3) + 1;
         //twinkle = rand.nextBoolean();
 
     }
 
+    //Renderer method
     public void planetRenderer()
     {
         batch.begin();
@@ -59,6 +62,7 @@ public class Planet
         batch.end();
     }
 
+    //Disposal method.
     public void planetDispose()
     {
         batch.dispose();

@@ -20,6 +20,8 @@ public class Star
     double start = System.currentTimeMillis();
     double finish;
     double timeElapsed;
+    //Star constructor. Generates a bunch of random numbers for the location, the radius of the star, as well as if it
+    //twinkles or not.
     public Star()
     {
         shapeRenderer = new ShapeRenderer();
@@ -29,7 +31,11 @@ public class Star
         randomRadius = rand.nextInt(2) + 1;
         twinkle = rand.nextBoolean();
     }
-
+    //Function is used for rendering the star in the main function.
+    //Function keeps track of how long the star has appeared on screen, which will matter only if the
+    //boolean twinkle is true or false.
+    //Currently the stars use the LibGDX shape renderer, but in the future there is
+    // a possbility to switch over to an actual sprite.
     public void starRenderer()
     {
         finish = System.currentTimeMillis();
@@ -55,6 +61,7 @@ public class Star
         rateOfTwinkle = rand.nextInt(1000);
     }
 
+    //This function is used for destroying the class in the main function.
     public void starDispose()
     {
         shapeRenderer.dispose();
