@@ -46,6 +46,10 @@ public class Planet
         }
         randomX = rand.nextInt(Gdx.graphics.getWidth());
         randomY = rand.nextInt(Gdx.graphics.getHeight());
+        //Rotate the planet randomly
+        planet.rotate(rand.nextInt(360));
+        //Set a random color to the planet
+        planet.setColor((rand.nextInt(255)/255f),(rand.nextInt(255)/255f),(rand.nextInt(255)/255f),1);
         randomRadius = rand.nextInt(3) + 1;
         //twinkle = rand.nextBoolean();
 
